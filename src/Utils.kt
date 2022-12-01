@@ -18,6 +18,9 @@ fun linesToIntSequence(lines: List<String>, splitBy: (String) -> List<String>) =
 fun linesToSequence(lines: List<String>, splitBy: (String) -> List<String>) =
     lines.filter { it != "" }.map { splitBy(it) }
 
+/**
+ * Converts text to chunks by splitting on a delimiter.
+ */
 fun String.textToChunks(delimiter: String) =
     this.split(delimiter).filter { it != "" }
 
