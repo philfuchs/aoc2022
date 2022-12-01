@@ -36,6 +36,10 @@ fun String.textToRecChunks(delimiter: String, transformer: (String) -> List<Any>
 fun String.textToRecChunksConvert(delimiter: String, transformer: (String) -> List<String>, converter: (String) -> Int) =
     this.split(delimiter).filter { it != "" }.map(transformer).map { it.map { el -> converter(el) } }
 
+fun String.textToTuplesRegex(delimiter: String, re: Regex): List<List<String>> {
+    return this.split(delimiter).filter { it != "" }.map { it.split(re) }
+}
+
 /**
  * Converts string to md5 hash.
  */
