@@ -25,13 +25,13 @@ fun String.textToChunks(delimiter: String) =
     this.split(delimiter).filter { it != "" }
 
 /**
- * Converts text to chunks by splitting on a delimiter and transforming the results.
+ * Converts text to chunks by splitting on a delimiter and transforms the results.
  */
 fun String.textToRecChunks(delimiter: String, transformer: (String) -> List<Any>) =
     this.split(delimiter).filter { it != "" }.map(transformer)
 
 /**
- * Converts text to chunks by splitting on a delimiter, transforming the results and converting elements to Int.
+ * Converts text to chunks by splitting on a delimiter, transforms the results and converts elements to Int.
  */
 fun String.textToRecChunksConvert(delimiter: String, transformer: (String) -> List<String>, converter: (String) -> Int) =
     this.split(delimiter).filter { it != "" }.map(transformer).map { it.map { el -> converter(el) } }
