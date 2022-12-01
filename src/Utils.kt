@@ -24,6 +24,9 @@ fun linesToSequence(lines: List<String>, splitBy: (String) -> List<String>) =
 fun String.textToChunks(delimiter: String) =
     this.split(delimiter).filter { it != "" }
 
+/**
+ * Converts text to chunks by splitting on a delimiter and transforming the results.
+ */
 fun String.textToRecChunks(delimiter: String, transformer: (String) -> List<Any>) =
     this.split(delimiter).filter { it != "" }.map(transformer)
 
