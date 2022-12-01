@@ -5,7 +5,7 @@ import textToRecChunksConvert
 
 fun day1() {
     fun part1(input: List<List<Int>>): Int {
-        return input.map { it.sum() }.withIndex().maxBy { it.value }.value
+        return input.map { it.sum() }.max()
     }
 
     fun part2(input: List<List<Int>>): Int {
