@@ -1,6 +1,7 @@
 import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
+import javax.xml.transform.Transformer
 
 /**
  * Reads lines from the given input txt file.
@@ -14,6 +15,9 @@ fun readAll(day: Int, small: Boolean = false) =
 fun linesToInt(lines: List<String>) = lines.filter { it != "" }.map { it.toInt() }
 fun linesToIntSequence(lines: List<String>, splitBy: (String) -> List<String>) =
     lines.filter { it != "" }.map { it -> splitBy(it).map { it.toInt() } }
+
+fun List<String>.linesToAsciiSequence(delimiter: String) =
+    this.map { it.split(delimiter).filter { el -> el != "" }.map { el -> el[0].code } }
 
 fun linesToSequence(lines: List<String>, splitBy: (String) -> List<String>) =
     lines.filter { it != "" }.map { splitBy(it) }
