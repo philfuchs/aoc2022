@@ -13,8 +13,8 @@ fun readAll(day: Int, small: Boolean = false) =
     File("src/day$day", if (!small) "input.txt" else "small_input.txt").readText()
 
 fun linesToInt(lines: List<String>) = lines.filter { it != "" }.map { it.toInt() }
-fun linesToIntSequence(lines: List<String>, splitBy: (String) -> List<String>) =
-    lines.filter { it != "" }.map { it -> splitBy(it).map { it.toInt() } }
+fun List<String>.linesToIntSequence(splitBy: (String) -> List<String>) =
+    this.filter { it != "" }.map { it -> splitBy(it).map { it.toInt() } }
 
 fun List<String>.linesToAsciiSequence(delimiter: String) =
     this.map { it.split(delimiter).filter { el -> el != "" }.map { el -> el[0].code } }
